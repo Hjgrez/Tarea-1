@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?"></script>
+    <script type="text/javascript" src="datos/input2.json"></script>
+    <script type="text/javascript" src="icons/colors.json"></script>
+    <script type="text/javascript" src="scripts/funciones.js"></script>
+</head>
+<body style= "width:80%; margin-left:auto; margin-right:auto;">
+		<div id="encabezado">
+		<p><table border="1px" style="width: 800px;">
+            <tr>
+            <td style="width: 50%;"><a href="estadisticas.html">Estadisticas</a></td>
+            <td style="width: 50%;">Buscar usuarios y sus amigos</td></tr>
+		</table></p>
+
+		</div>
+		
+		<div id="busca">
+				<select name = "selusuario" id = "selusuario">
+					<script type="text/javascript">
+						var codigo,i
+						codigo = ""
+						for (var i = 0; i < datos.usuarios.length; i++) {
+					codigo += "<option value="+ i + ">" + datos.usuarios[i].id+ "</option>"
+						};
+
+						document.write(codigo)
+					</script>
+				</select>
+				<br>
+				Mostrar amigos<br>
+
+				<select name="mosamigos" id= "mosamigos">
+  				<option value=true>Si</option>
+  				<option value=false>No</option>
+  				</select>
+				<br>
+				<input type="date" id="inicio" max="2011-12-31" min="2011-01-01"></input>
+				<input type="date" id="fin" max="2011-12-31" min="2011-01-01"></input>
+				<input type="button" value="Submit" onclick="boton(map,datos,selusuario.value,colors,mosamigos.value,document.getElementById('inicio').value,document.getElementById('fin').value)">
+
+		</div>
+		<div id="map" style="width: 800px; height: 600px;">
+
+  		<script type="text/javascript">
+			var map = new google.maps.Map(document.getElementById("map"), {
+	      		zoom: 3,
+	      		center: new google.maps.LatLng(47.888846, -53.585254),
+	    	});
+
+	    function boton(map,datos,selusuario,colors,amigos,inicio,fin){
+	    	var map = new google.maps.Map(document.getElementById("map"), {
+	      		zoom: 3,
+	      		center: new google.maps.LatLng(47.888846, -53.585254),
+	    	});
+	    	map = mostraramigos(datos.usuarios[selusuario],map,colors,amigos,inicio,fin);
+	    	return map
+	    }
+
+		</script>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+La cantidad de ubicaciones es: 187219
+La cantidad de usuarios es: 11327
+La cantidad de checkins es: 2290997
+El prom de checkins por persona es: 202.26
+El prom de checkins por lugar es: 12.237
+El prom de amigos por usuario es: 8.328

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Estadisticas</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?"></script>
+    <script type="text/javascript" src="datos/muestra2.json"></script>
+  </head>
+  <body style= "width:80%; margin-left:auto; margin-right:auto;">
+    
+	<div id="encabezado">
+		<p><table border="1px" style="width: 800px;">
+            <tr>
+            <td style="width: 50%;">Estadisticas</td>
+            <td style="width: 50%;"><a href="amigos.html">Buscar usuarios y sus amigos</a></td></tr>
+		</table></p>
+	</div>
+	<div id="mapa"></div>
+	<div id="marco"></div>
+	<div id="estadisticas">
+		<table border="1px" style="width: 800px;">
+            <tr>
+            <td style="width: 50%;">La cantidad de checkins es: 2.290.997</td>
+            <td>El prom de amigos por usuario es: 8,328</td></tr>
+            <tr>
+			<td>La cantidad de usuarios es: 11.327</td>
+			<td>El prom de checkins por persona es: 202,26</td>
+
+			</tr>
+			<tr>
+			<td>La cantidad de ubicaciones es: 187.219</td>
+			<td>El prom de checkins por lugar es: 12,237</td></tr>	
+        </table>
+	</div>
+	<div id="map" style="width: 800px; height: 600px;">
+
+  	<script type="text/javascript">
+
+	
+	    var map = new google.maps.Map(document.getElementById('map'), {
+	      zoom: 2,
+	      center: new google.maps.LatLng(27.026670, -13.155191),
+	    });
+
+	    var marker, i;
+
+	    for (i = 0; i < datos.length; i++) {  
+	      marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(datos[i][0], datos[i][1]),
+	        map: map,
+	    });
+
+	    var infowindow = new google.maps.InfoWindow();
+
+	    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent("<img src='http://maps.googleapis.com/maps/api/streetview?size=320x320&location="+datos[i][0]+","+datos[i][1]+"&fov=100&heading=0&pitch=10&sensor=false'></img>");
+          infowindow.open(map, marker);
+        }
+      } )(marker,i));
+	
+	}
+
+
+	</script>
+	</div>
+</body>
+</html>
