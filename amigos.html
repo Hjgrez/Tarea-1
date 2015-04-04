@@ -10,14 +10,15 @@
         padding: 0px
       }
     </style>
+    <link rel="stylesheet" type="text/css" href="amigos.css">
     <script src="https://maps.googleapis.com/maps/api/js?"></script>
     <script type="text/javascript" src="datos/input2.json"></script>
     <script type="text/javascript" src="icons/colors.json"></script>
     <script type="text/javascript" src="scripts/funciones.js"></script>
 </head>
-<body style= "width:80%; margin-left:auto; margin-right:auto;">
+<body>
 		<div id="encabezado">
-		<p><table border="1px" style="width: 800px;">
+		<p><table>
             <tr>
             <td style="width: 50%;"><a href="estadisticas.html">Estadisticas</a></td>
             <td style="width: 50%;">Buscar usuarios y sus amigos</td></tr>
@@ -26,27 +27,37 @@
 		</div>
 		
 		<div id="busca">
-				<select name = "selusuario" id = "selusuario">
-					<script type="text/javascript">
-						var codigo,i
-						codigo = ""
-						for (var i = 0; i < datos.usuarios.length; i++) {
-					codigo += "<option value="+ i + ">" + datos.usuarios[i].id+ "</option>"
-						};
+			<table>
+				<th>Usuario</th>
+				<th>Amigos</th>
+				<th>Fecha inicio</th>
+				<th>Fecha fin</th>
+				<tr>
+				<td>
+					<select name = "selusuario" id = "selusuario">
+						<script type="text/javascript">
+							var codigo,i
+							codigo = ""
+							for (var i = 0; i < datos.usuarios.length; i++) {
+						codigo += "<option value="+ i + ">" + datos.usuarios[i].id+ "</option>"
+							};
 
-						document.write(codigo)
-					</script>
-				</select>
-				<br>
-				Mostrar amigos<br>
-
-				<select name="mosamigos" id= "mosamigos">
-  				<option value=true>Si</option>
-  				<option value=false>No</option>
-  				</select>
-				<br>
-				<input type="date" id="inicio" max="2011-12-31" min="2011-01-01"></input>
-				<input type="date" id="fin" max="2011-12-31" min="2011-01-01"></input>
+							document.write(codigo)
+						</script>
+					</select>
+				</td>
+				<td>
+					<select name="mosamigos" id= "mosamigos">
+  					<option value=true>Si</option>
+  					<option value=false>No</option>
+  					</select>
+				</td>
+				<td>
+					<input type="date" id="inicio" max="2011-12-31" min="2011-01-01"></input>
+				</td>
+				<td>
+					<input type="date" id="fin" max="2011-12-31" min="2011-01-01"></input>
+				</td></tr></table>
 				<input type="button" value="Submit" onclick="boton(map,datos,selusuario.value,colors,mosamigos.value,document.getElementById('inicio').value,document.getElementById('fin').value)">
 
 		</div>

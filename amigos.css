@@ -1,0 +1,24 @@
+body {width:800px; margin-left:auto; margin-right:auto;}
+#encabezado table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid black;
+}
+#encabezado td {
+	width: 50%;
+	text-align: center;
+	size: 20px; 
+	border: 1px solid black;
+}
+#busca table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid black;
+}
+#busca td, th {
+	width: 25%;
+	text-align: center;
+	size: 20px; 
+	border: 1px solid black;
+}
+.button {}
