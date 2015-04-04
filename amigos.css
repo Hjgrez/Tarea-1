@@ -1,8 +1,16 @@
-body {width:800px; margin-left:auto; margin-right:auto;}
+body {
+	width:800px; 
+	margin-left:auto; 
+	margin-right:auto;
+}
 #encabezado table {
 	border-collapse: collapse;
 	width: 100%;
 	border: 1px solid black;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: sans-serif;
+
 }
 #encabezado td {
 	width: 50%;
@@ -21,4 +29,12 @@ body {width:800px; margin-left:auto; margin-right:auto;}
 	size: 20px; 
 	border: 1px solid black;
 }
-.button {}
+#boton {
+	cursor: pointer;
+	border-radius: 10px;
+	width: 100%;
+	height: 50px;
+	font-size: 16px;
+	background-color: rgb(250,100,100);
+
+}
