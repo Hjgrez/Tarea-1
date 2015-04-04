@@ -35,10 +35,11 @@ body {
 	width: 100%;
 	height: 50px;
 	font-size: 16px;
-	background-color: rgb(250,100,100);
+	color:  white;
+	background-color: #fa6464;
 
 }
 #map {
 	width: 800px; 
-	height: 75%;
+	height: 500px;
 }
