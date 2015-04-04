@@ -4,20 +4,14 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Estadisticas</title>
-    <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="estadisticas.css">
     <script src="https://maps.googleapis.com/maps/api/js?"></script>
     <script type="text/javascript" src="datos/muestra2.json"></script>
   </head>
   <body style= "width:80%; margin-left:auto; margin-right:auto;">
     
 	<div id="encabezado">
-		<p><table border="1px" style="width: 800px;">
+		<p><table>
             <tr>
             <td style="width: 50%;">Estadisticas</td>
             <td style="width: 50%;"><a href="amigos.html">Buscar usuarios y sus amigos</a></td></tr>
@@ -40,7 +34,7 @@
 			<td>El prom de checkins por lugar es: 12,237</td></tr>	
         </table>
 	</div>
-	<div id="map" style="width: 800px; height: 600px;">
+	<div id="map" >
 
   	<script type="text/javascript">
 
@@ -62,10 +56,10 @@
 
 	    google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent("<img src='http://maps.googleapis.com/maps/api/streetview?size=320x320&location="+datos[i][0]+","+datos[i][1]+"&fov=100&heading=0&pitch=10&sensor=false'></img>");
+          infowindow.setContent("<img src='http://maps.googleapis.com/maps/api/streetview?size=240x240&location="+datos[i][0]+","+datos[i][1]+"&fov=100&heading=0&pitch=10&sensor=false'></img>");
           infowindow.open(map, marker);
         }
-      } )(marker,i));
+      } ) (marker,i));
 	
 	}
 
