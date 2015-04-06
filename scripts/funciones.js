@@ -20,8 +20,15 @@ function mostrarusuario(usuario,map,color,colors,inicio,fin) {
 		        map: map,
 		        icon: "icons/" + colors[color] + ".png"
 		      });
-		marker.setMap(map);
-		i += 1	      
+		var infowindow = new google.maps.InfoWindow();
+
+	    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        	return function() {
+                infowindow.setContent("<img src='http://maps.googleapis.com/maps/api/streetview?size=320x320&location="+lat+","+lon+"&fov=100&heading=0&pitch=10&sensor=false'></img><p>Usuario: "+usuario.id+"</p>"+"<p>Fecha: "+usuario.checkins[i].time+"</p>");
+                infowindow.open(map, marker);
+            }
+        } ) (marker,i));
+      
 		};
 	};
 	var movimiento = new google.maps.Polyline({
