@@ -14,7 +14,7 @@ function mostrarusuario(usuario,map,color,colors,inicio,fin) {
 		var lat = usuario.checkins[i].latitude
 		var lon = usuario.checkins[i].longitude
 		ruta[ruta.length] = new google.maps.LatLng(lat, lon)
-		console.log(date_i)
+
 		marker = new google.maps.Marker({
 		        position: new google.maps.LatLng(lat, lon),
 		        map: map,
